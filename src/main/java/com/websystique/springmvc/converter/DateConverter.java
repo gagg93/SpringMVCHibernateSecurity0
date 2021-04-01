@@ -15,9 +15,7 @@ public class DateConverter implements Converter<String, Date> {
         if (!source.isEmpty()) {
             try {
                 return sf.parse(source);
-            } catch (ParseException e) {
-                //LOGGER.error(e.getLocalizedMessage());
-            }
+            } catch (ParseException e) {}
         }
         return null;
     }

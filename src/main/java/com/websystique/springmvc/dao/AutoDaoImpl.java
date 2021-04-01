@@ -23,9 +23,6 @@ public class AutoDaoImpl extends AbstractDao<Integer, Auto> implements AutoDao {
 	
 	public Auto findById(int id) {
 		Auto auto = getByKey(id);
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return auto;
 	}
 
@@ -34,24 +31,14 @@ public class AutoDaoImpl extends AbstractDao<Integer, Auto> implements AutoDao {
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("targa", targa));
 		Auto auto = (Auto)crit.uniqueResult();
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return auto;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Auto> findAllAutos() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("targa"));
-		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Auto> autos = (List<Auto>) criteria.list();
-		
-		// No need to fetch userProfiles since we are not showing them on list page. Let them lazy load. 
-		// Uncomment below lines for eagerly fetching of userProfiles if you want.
-		/*
-		for(User user : users){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return autos;
 	}
 

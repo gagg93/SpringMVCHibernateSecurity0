@@ -25,9 +25,6 @@ public class PrenotazioneDaoImpl extends AbstractDao<Integer, Prenotazione> impl
 	
 	public Prenotazione findById(int id) {
 		Prenotazione prenotazione = getByKey(id);
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return prenotazione;
 	}
 
@@ -36,9 +33,6 @@ public class PrenotazioneDaoImpl extends AbstractDao<Integer, Prenotazione> impl
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("user", user));
 		List<Prenotazione> prenotazione = crit.list();
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return prenotazione;
 	}
 
@@ -48,24 +42,14 @@ public class PrenotazioneDaoImpl extends AbstractDao<Integer, Prenotazione> impl
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("auto", auto));
 		List<Prenotazione> prenotazione = crit.list();
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return prenotazione;
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Prenotazione> findAllPrenotaziones() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("user"));
-		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Prenotazione> prenotaziones = (List<Prenotazione>) criteria.list();
-		
-		// No need to fetch userProfiles since we are not showing them on list page. Let them lazy load. 
-		// Uncomment below lines for eagerly fetching of userProfiles if you want.
-		/*
-		for(User user : users){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return prenotaziones;
 	}
 
@@ -97,12 +81,7 @@ public class PrenotazioneDaoImpl extends AbstractDao<Integer, Prenotazione> impl
 
 		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Prenotazione> prenotaziones = crit.list();
-		/*if(user!=null){
-			Hibernate.initialize(user.getUserProfiles());
-		}*/
 		return prenotaziones;
-
-
 	}
 }
 

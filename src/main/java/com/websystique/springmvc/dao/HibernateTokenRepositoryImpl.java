@@ -11,7 +11,6 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.websystique.springmvc.dao.AbstractDao;
 import com.websystique.springmvc.model.PersistentLogin;
 
 @Repository("tokenRepositoryDao")

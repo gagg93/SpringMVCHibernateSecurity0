@@ -106,7 +106,6 @@ public class UserController {
 		model.addAttribute("success", "User " + user.getFirstName() + " "+ user.getLastName() + " registered successfully");
 		model.addAttribute("loggedinuser", getPrincipal());
 		model.addAttribute("returnpage", "user");
-		//return "success";
 		return "registrationsuccess";
 	}
 

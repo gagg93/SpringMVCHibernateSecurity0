@@ -37,11 +37,6 @@ public class UserServiceImpl implements UserService{
 		dao.save(user);
 	}
 
-	/*
-	 * Since the method is running with Transaction, No need to call hibernate update explicitly.
-	 * Just fetch the entity from db and update it with proper values within transaction.
-	 * It will be updated in db once transaction ends. 
-	 */
 	public void updateUser(User user) {
 		User entity = dao.findById(user.getId());
 		if(entity!=null){

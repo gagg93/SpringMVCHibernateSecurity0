@@ -1,8 +1,8 @@
 package com.websystique.springmvc.dto;
 
-import com.websystique.springmvc.dao.UserDao;
+
 import com.websystique.springmvc.model.Prenotazione;
-import org.springframework.security.access.method.P;
+
 
 import java.util.Date;
 

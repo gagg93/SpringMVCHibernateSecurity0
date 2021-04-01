@@ -9,8 +9,6 @@ import com.websystique.springmvc.model.Auto;
 import com.websystique.springmvc.model.Prenotazione;
 import com.websystique.springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -63,11 +61,6 @@ public class PrenotazioneServiceImpl implements PrenotazioneService{
 		dao.save(new Prenotazione(prenotazione.getDataDiInizio(),prenotazione.getDataDiFine(),auto,user));
 	}
 
-	/*
-	 * Since the method is running with Transaction, No need to call hibernate update explicitly.
-	 * Just fetch the entity from db and update it with proper values within transaction.
-	 * It will be updated in db once transaction ends. 
-	 */
 	public void updatePrenotazione(PrenotazioneDto prenotazione) {
 		Prenotazione entity = dao.findById(prenotazione.getId());
 		if(entity!=null){

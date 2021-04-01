@@ -13,7 +13,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="SpringMVCHibernateSecurity" />
+          <factory-entry name="SpringMVCHibernateSecurity" value="c591aaac-0f81-4fcc-a05c-5b5dd15e1acb" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

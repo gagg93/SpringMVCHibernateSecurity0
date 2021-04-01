@@ -50,9 +50,6 @@ public class PrenotazioneController {
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
 
-	/**
-	 * This method will list all existing users.
-	 */
 	@RequestMapping(value = {"/prenotazionelist"}, method = RequestMethod.GET)
 	public String listPrenotazioni(ModelMap model) {
 		if(!userService.findByUsername(getPrincipal()).getAdmin()){
@@ -217,9 +214,6 @@ public class PrenotazioneController {
 		return "registrationsuccess";
 	}
 
-	/**
-	 * This method will delete an user by it's SSOID value.
-	 */
 	@RequestMapping(value = {"/delete-prenotazione-{id}"}, method = RequestMethod.GET)
 	public String deletePrenotazione(@PathVariable int id) {
 		PrenotazioneDto prenotazione = prenotazioneService.findById(id);
@@ -247,9 +241,6 @@ public class PrenotazioneController {
 		return "redirect:/prenotazionelist";
 	}
 
-	/**
-	 * This method returns the principal[user-name] of logged-in user.
-	 */
 	private String getPrincipal() {
 		String userName;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -262,9 +253,6 @@ public class PrenotazioneController {
 		return userName;
 	}
 
-	/**
-	 * This method returns true if users is already authenticated [logged-in], else false.
-	 */
 	private boolean isCurrentAuthenticationAnonymous() {
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		return authenticationTrustResolver.isAnonymous(authentication);

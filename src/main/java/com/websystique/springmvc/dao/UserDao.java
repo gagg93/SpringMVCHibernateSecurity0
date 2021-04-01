@@ -19,7 +19,7 @@ public interface UserDao {
 	
 	List<User> findAllUsers();
 
-	public List<User> research(ResearchForm researchForm) throws ParseException;
+	List<User> research(ResearchForm researchForm) throws ParseException;
 
 }
 

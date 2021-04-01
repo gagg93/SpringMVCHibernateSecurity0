@@ -28,7 +28,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         super();
     }
 
-    // API
 
     @Override
     public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
@@ -36,7 +35,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         clearAuthenticationAttributes(request);
     }
 
-    // IMPL
 
     protected void handle(final HttpServletRequest request, final HttpServletResponse response, final Authentication authentication) throws IOException {
         final String targetUrl = determineTargetUrl(authentication);
@@ -67,10 +65,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         throw new IllegalStateException();
     }
 
-    /**
-     * Removes temporary authentication-related data which may have been stored in the session
-     * during the authentication process.
-     */
     protected final void clearAuthenticationAttributes(final HttpServletRequest request) {
         final HttpSession session = request.getSession(false);
 

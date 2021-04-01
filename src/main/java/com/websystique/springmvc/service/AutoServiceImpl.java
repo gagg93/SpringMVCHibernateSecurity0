@@ -1,12 +1,9 @@
 package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.dao.AutoDao;
-import com.websystique.springmvc.dao.UserDao;
 import com.websystique.springmvc.dto.ResearchForm;
 import com.websystique.springmvc.model.Auto;
-import com.websystique.springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,11 +30,6 @@ public class AutoServiceImpl implements AutoService{
 		dao.save(auto);
 	}
 
-	/*
-	 * Since the method is running with Transaction, No need to call hibernate update explicitly.
-	 * Just fetch the entity from db and update it with proper values within transaction.
-	 * It will be updated in db once transaction ends. 
-	 */
 	public void updateAuto(Auto auto) {
 		Auto entity = dao.findById(auto.getId());
 		if(entity!=null){

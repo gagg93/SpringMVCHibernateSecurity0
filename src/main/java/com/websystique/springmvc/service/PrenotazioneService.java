@@ -3,9 +3,6 @@ package com.websystique.springmvc.service;
 import com.websystique.springmvc.dto.PrenotazioneDto;
 import com.websystique.springmvc.dto.ResearchForm;
 import com.websystique.springmvc.model.Auto;
-import com.websystique.springmvc.model.Prenotazione;
-import com.websystique.springmvc.model.User;
-
 import java.text.ParseException;
 import java.util.List;
 

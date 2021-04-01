@@ -17,7 +17,6 @@
 	<div class="generic-container">
 		<%@include file="authheader.jsp" %>	
 		<div class="panel panel-default">
-			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">List of Autos </span></div>
 			<span class="floatRight">
 					<form:form method="POST" modelAttribute="researchform" class="form-horizontal">
