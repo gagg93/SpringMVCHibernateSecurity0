@@ -88,26 +88,42 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="form-group col-md-12 ">
-					<%--@declare id="admin"--%><label class="col-md-3 control-lable" for="Admin">Admin?</label>
-					<div class="col-md-1 left">
-						<td><form:checkbox path="admin" class="form-control input-sm"/></td>
+			<sec:authorize access="hasRole('ADMIN')">
+				<div class="row">
+					<div class="form-group col-md-12 ">
+						<%--@declare id="admin"--%><label class="col-md-3 control-lable" for="Admin">Admin?</label>
+						<div class="col-md-1 left">
+							<td><form:checkbox path="admin" class="form-control input-sm"/></td>
+						</div>
 					</div>
 				</div>
-			</div>
+			</sec:authorize>
 
 	
 			<div class="row">
 				<div class="form-actions floatRight">
-					<c:choose>
-						<c:when test="${edit}">
-							<input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/userlist' />">Cancel</a>
-						</c:when>
-						<c:otherwise>
-							<input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/userlist' />">Cancel</a>
-						</c:otherwise>
-					</c:choose>
+						<sec:authorize access="hasRole('ADMIN')">
+							<c:choose>
+								<c:when test="${edit}">
+									<input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/userlist' />">Cancel</a>
+								</c:when>
+								<c:otherwise>
+									<input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/userlist' />">Cancel</a>
+								</c:otherwise>
+							</c:choose>
+						</sec:authorize>
+						<sec:authorize access="hasRole('ROLE_CUSTOMER')">
+							<c:choose>
+								<c:when test="${edit}">
+									<input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/prenotazioni-user-0' />">Cancel</a>
+								</c:when>
+								<c:otherwise>
+									<input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/prenotazioni-user-0' />">Cancel</a>
+								</c:otherwise>
+							</c:choose>
+						</sec:authorize>
+
+
 				</div>
 			</div>
 
