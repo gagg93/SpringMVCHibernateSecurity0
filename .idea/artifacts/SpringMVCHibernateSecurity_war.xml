@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringMVCHibernateSecurity:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SpringMVCHibernateSecurity</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SpringMVCHibernateWithSpringSecurityExample.war">
+      <element id="artifact" artifact-name="SpringMVCHibernateSecurity:war exploded" />
+    </root>
+  </artifact>
+</component>
