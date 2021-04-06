@@ -175,7 +175,12 @@ public class UserController {
 		if (isCurrentAuthenticationAnonymous()) {
 			return "login";
 	    } else {
-			return "redirect:/userlist";
+			if (userService.findByUsername(getPrincipal()).getAdmin()){
+				return "redirect:/userlist";
+			}
+			else {
+				return "redirect:/prenotazioni-user-0";
+			}
 	    }
 	}
 
